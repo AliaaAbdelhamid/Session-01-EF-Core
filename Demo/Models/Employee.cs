@@ -13,7 +13,7 @@ namespace Demo.Models
 		// Public Numeric Property Named With Id Or (<Entity>Id)
 		// Automatically Assumed To Be The Primary Key Of Table With Identity Constraints
 
-		public string? EmpName	 { get; set; }
+		public string? Name	 { get; set; }
 		// Null able Reference Type 
 		// String? Is Mapped To NVarchar(Max) Nullable 
 		public decimal Salary { get; set; }

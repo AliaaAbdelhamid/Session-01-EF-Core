@@ -20,6 +20,8 @@ namespace Demo.DbContexts
 			optionsBuilder.UseSqlServer("Server = .; Database = CompanyG06 ; Trusted_Connection = true; TrustServerCertificate=true");
 		}
 
+		public DbSet<Department> Departments { get; set; }
 		public DbSet<Employee> Employees { get; set; }
+		public DbSet<Product> Products { get; set; }
 	}
 }
