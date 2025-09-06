@@ -1,4 +1,5 @@
 ﻿using Demo.DbContexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace Demo
 {
@@ -6,8 +7,6 @@ namespace Demo
     {
         static void Main(string[] args)
         {
-
-            using CompanyDbContext dbContext = new CompanyDbContext(); // C# 8.0 syntax sugar
 
 		}
     }
