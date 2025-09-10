@@ -1,27 +1,26 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Demo.Models
 {
-	// Model [POCO Class] : Plain Old CLR Object [Domain Entity ]
 	internal class Employee
 	{
-		public int Id { get; set; }
-		// Public Numeric Property Named With Id Or (<Entity>Id)
-		// Automatically Assumed To Be The Primary Key Of Table With Identity Constraints
-
-		public string? Name	 { get; set; }
-		// Null able Reference Type 
-		// String? Is Mapped To NVarchar(Max) Nullable 
+		[DataType(DataType.DateTime)]
+		public int EmpId { get; set; }
+		public string? EmpName { get; set; }
 		public decimal Salary { get; set; }
-		// Value Type 
-		// Salary Is Mapped To Decimal(18,2) Not Allow Null
 		public int Age { get; set; }
-		// Value Type 
-		// Age Is Mapped To int Not Allow Null
-
+		public string Email { get; set; }
+		public string PhoneNumber { get; set; }
+		public string? Password { get; set; }
+		[NotMapped]
+		public string? UserName => Email.Split('@').ToString();
 	}
 }
