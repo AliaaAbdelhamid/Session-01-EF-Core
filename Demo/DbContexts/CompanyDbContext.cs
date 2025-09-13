@@ -31,9 +31,17 @@ namespace Demo.DbContexts
 						.WithOne(D => D.Manager)
 						.HasForeignKey<Department>(D => D.DeptManagerId)
 						.OnDelete(DeleteBehavior.Restrict);
+
+
+			modelBuilder.Entity<Employee>()
+		                .OwnsOne(E => E.Address, OE =>
+		                {
+		                	OE.Property(A => A.City).HasColumnName("EmployeeCity");
+		                	OE.Property(A => A.Country).HasColumnName("EmployeeCountry");
+		                	OE.Property(A => A.Street).HasColumnName("EmployeeStreet");
+		                });
+
 		}
-
-
 
 		public DbSet<Employee> Employees { get; set; }
 		public DbSet<Department> Departments { get; set; }
