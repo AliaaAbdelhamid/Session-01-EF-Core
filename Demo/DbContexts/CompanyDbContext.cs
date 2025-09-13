@@ -68,6 +68,22 @@ namespace Demo.DbContexts
 			//			.HasForeignKey(E => E.DepartmentId)
 			//			.IsRequired()// Make Relationship Required [FK Not Allow Null]	
 			//			.OnDelete(DeleteBehavior.Restrict);
+
+
+			modelBuilder.Entity<EmployeeProject>().HasKey(EP => EP.EmployeeId);
+
+			modelBuilder.Entity<EmployeeProject>()
+						.HasOne(EP => EP.Employee)
+						.WithOne(E => E.EmployeeProject)
+						.HasForeignKey<EmployeeProject>(EP => EP.EmployeeId);
+
+
+			modelBuilder.Entity<EmployeeProject>()
+						.HasOne(EP => EP.Project)
+						.WithMany(P => P.ProjectEmployees)
+						.HasForeignKey(EP => EP.ProjectId);
+
+
 		}
 
 		public DbSet<Employee> Employees { get; set; }
