@@ -41,6 +41,18 @@ namespace Demo.DbContexts
 		                	OE.Property(A => A.Street).HasColumnName("EmployeeStreet");
 		                });
 
+			modelBuilder.Entity<Employee>()
+						.HasOne<EmployeeCar>()
+						.WithOne(E => E.Employee)
+						.HasForeignKey<EmployeeCar>(EC => EC.EmployeeId);
+
+			modelBuilder.Entity<Car>()
+						.HasOne<EmployeeCar>()
+						.WithOne(E => E.Car)
+						.HasForeignKey<EmployeeCar>(EC => EC.CarId);
+
+			modelBuilder.Entity<EmployeeCar>().HasKey(EC=>EC.EmployeeId);
+
 		}
 
 		public DbSet<Employee> Employees { get; set; }

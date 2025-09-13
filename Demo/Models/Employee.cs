@@ -25,7 +25,6 @@ namespace Demo.Models
 		// Navigation Property [One]
 		// Ef Core -> Employee May Be Manage One Department [Optional]
 		public Department? ManagedDepartment { get; set; } = null!;
-
 		public Address Address { get; set; } = null!;
 	}
 }
