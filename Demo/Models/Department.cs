@@ -20,7 +20,7 @@ namespace Demo.Models
     	[InverseProperty(nameof(Employee.ManagedDepartment))]
 		public Employee Manager { get; set; } = null!;
 
-		public int DeptManagerId { get; set; }
+		public int? DeptManagerId { get; set; }
 
 		// Navigation Property [One]
 		// Department Contains Many Employees

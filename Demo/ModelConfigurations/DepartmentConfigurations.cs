@@ -32,6 +32,11 @@ namespace Demo.ModelConfigurations
 			 .HasDefaultValueSql("GetDate()");
 			
 			D.Ignore(D => D.Serial);
+
+			D.HasData(
+				new Department() { DeptId = 20, DeptName = "HR", DateOfCreation = new DateTime(2025, 10, 30), Serial = 1000 },
+				new Department() { DeptId = 50, DeptName = "IT", DateOfCreation = new DateTime(2025, 1, 15), Serial = 2000 }
+				);
 		}
 	}
 }

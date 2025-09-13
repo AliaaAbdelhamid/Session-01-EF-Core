@@ -4,6 +4,7 @@ using Demo.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Demo.Migrations
 {
     [DbContext(typeof(CompanyDbContext))]
-    partial class CompanyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250913225504_NullableDeptManagerInDepartmentTable")]
+    partial class NullableDeptManagerInDepartmentTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,20 +88,6 @@ namespace Demo.Migrations
                         .HasFilter("[DeptManagerId] IS NOT NULL");
 
                     b.ToTable("Departments", "Sales");
-
-                    b.HasData(
-                        new
-                        {
-                            DeptId = 20,
-                            DateOfCreation = new DateTime(2025, 10, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DeptName = "HR"
-                        },
-                        new
-                        {
-                            DeptId = 50,
-                            DateOfCreation = new DateTime(2025, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DeptName = "IT"
-                        });
                 });
 
             modelBuilder.Entity("Demo.Models.Employee", b =>
