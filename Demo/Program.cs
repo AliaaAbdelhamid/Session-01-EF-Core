@@ -1,22 +1,54 @@
 ﻿using Demo.DbContexts;
+using Demo.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Demo
 {
     internal class Program
-    {
-        static void Main(string[] args)
-        {
+	{
+		static void Main(string[] args)
+		{
 
-            //CompanyDbContext dbContext = new CompanyDbContext();
-            //var Emp01 = dbContext.Employees.FirstOrDefault();
-            //Console.WriteLine(Emp01?.EmpName); // Aliaa
-            //Console.WriteLine(Emp01.Address?.Country); // Egypt 
+			//CompanyDbContext dbContext = new CompanyDbContext();
 
-			//var Emp01Address  = dbContext.Addresses.FirstOrDefault();
-			//Console.WriteLine(Emp01Address?.Country); // Egypt 
+			//dbContext.Students.Add(new Student()
+			//{
+			//	SName = "Aliaa"
+			//});
 
 
+			//dbContext.Courses.AddRange(
+			//	new Course() { CName = "OOP" },
+			//	new Course() { CName = "C#" },
+			//	new Course() { CName = "EF Core" });
+
+			//dbContext.SaveChanges();
+
+
+			//var Course02 = dbContext.Courses.FirstOrDefault(C => C.CourseId == 2);
+			//var Course03 = dbContext.Courses.FirstOrDefault(C => C.CourseId == 3);
+			//var Student = dbContext.Students.FirstOrDefault(S => S.StudentId == 1);
+
+			//if (Course02 is not null  && Student is not null)
+			//{
+			//	Student.StdCourses.Add(new StudentCourse()
+			//	{
+			//		Student = Student,
+			//		Course = Course02,
+			//		Grade = 100
+			//	});
+			//}
+
+			//if (Course03 is not null && Student is not null)
+			//{
+			//	Student.StdCourses.Add(new StudentCourse()
+			//	{
+			//		Student = Student,
+			//		Course = Course03,
+			//		Grade = 60
+			//	});
+			//}
+			//dbContext.SaveChanges();
 		}
-    }
+	}
 }

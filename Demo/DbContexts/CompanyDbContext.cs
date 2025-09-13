@@ -83,9 +83,19 @@ namespace Demo.DbContexts
 						.WithMany(P => P.ProjectEmployees)
 						.HasForeignKey(EP => EP.ProjectId);
 
+			//modelBuilder.Entity<Student>()
+			//			.HasMany(S => S.Courses)
+			//			.WithMany(C => C.Students)
+			//			.UsingEntity(RT => 
+			//			{
+			//				RT.ToTable("Hamda");
+			//		    });
 
+			modelBuilder.Entity<StudentCourse>().HasKey(SC => new {SC.StudentId , SC.CourseId});
 		}
 
+		public DbSet<Student> Students { get; set; }
+		public DbSet<Course> Courses { get; set; }
 		public DbSet<Employee> Employees { get; set; }
 		public DbSet<Department> Departments { get; set; }
 	}
