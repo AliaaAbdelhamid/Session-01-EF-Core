@@ -53,6 +53,21 @@ namespace Demo.DbContexts
 
 			modelBuilder.Entity<EmployeeCar>().HasKey(EC=>EC.EmployeeId);
 
+
+			modelBuilder.Entity<Employee>()
+						.HasOne(E => E.EmployeeDepartment)
+						.WithMany(D => D.Employees)
+						.HasForeignKey(E => E.DepartmentId)
+						.IsRequired()// Make Relationship Required [FK Not Allow Null]	
+						.OnDelete(DeleteBehavior.Restrict);
+
+
+			//modelBuilder.Entity<Department>()
+			//			.HasMany(D => D.Employees)
+			//			.WithOne(E => E.EmployeeDepartment)
+			//			.HasForeignKey(E => E.DepartmentId)
+			//			.IsRequired()// Make Relationship Required [FK Not Allow Null]	
+			//			.OnDelete(DeleteBehavior.Restrict);
 		}
 
 		public DbSet<Employee> Employees { get; set; }
