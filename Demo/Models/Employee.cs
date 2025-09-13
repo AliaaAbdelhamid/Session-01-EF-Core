@@ -12,7 +12,6 @@ namespace Demo.Models
 {
 	internal class Employee
 	{
-		[DataType(DataType.DateTime)]
 		public int EmpId { get; set; }
 		public string? EmpName { get; set; }
 		public decimal Salary { get; set; }
@@ -22,5 +21,9 @@ namespace Demo.Models
 		public string? Password { get; set; }
 		[NotMapped]
 		public string? UserName => Email.Split('@').ToString();
+
+		// Navigation Property [One]
+		// Ef Core -> Employee May Be Manage One Department [Optional]
+		public Department? ManagedDepartment { get; set; } = null!;
 	}
 }

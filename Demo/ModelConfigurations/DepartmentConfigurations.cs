@@ -1,4 +1,4 @@
-﻿using Common;
+﻿using Demo.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

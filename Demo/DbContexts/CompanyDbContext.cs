@@ -1,5 +1,4 @@
-﻿using Common;
-using Demo.ModelConfigurations;
+﻿using Demo.ModelConfigurations;
 using Demo.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -25,17 +24,18 @@ namespace Demo.DbContexts
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			//modelBuilder.ApplyConfiguration<Employee>(new EmployeeConfigurations());
-			//modelBuilder.ApplyConfiguration(new DepartmentConfigurations());
-
 			modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-			// Automatically Apply All Fluent Api Configurations From Separate
-			// Configuration Classes [Class Implement IEntityTypeConfiguration<>] In The Given Assembly 
-			// Assembly.GetExecutingAssembly() -> the one where your DbContext Exists
+
+			modelBuilder.Entity<Employee>()
+						.HasOne(E => E.ManagedDepartment)
+						.WithOne(D => D.Manager)
+						.HasForeignKey<Department>(D => D.DeptManagerId)
+						.OnDelete(DeleteBehavior.Restrict);
 		}
 
 
+
 		public DbSet<Employee> Employees { get; set; }
-		public DbSet<Common.Department> Departments { get; set; }
+		public DbSet<Department> Departments { get; set; }
 	}
 }
