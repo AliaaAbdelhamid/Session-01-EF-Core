@@ -19,7 +19,8 @@ namespace Demo.DbContexts
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer("Server = .; Database = CompanyG06 ; Trusted_Connection = true; TrustServerCertificate=true");
+			optionsBuilder.UseLazyLoadingProxies()
+				.UseSqlServer("Server = .; Database = CompanyG06 ; Trusted_Connection = true; TrustServerCertificate=true");
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -58,7 +59,7 @@ namespace Demo.DbContexts
 						.HasOne(E => E.EmployeeDepartment)
 						.WithMany(D => D.Employees)
 						.HasForeignKey(E => E.DepartmentId)
-						.IsRequired()// Make Relationship Required [FK Not Allow Null]	
+						.IsRequired(false)// Make Relationship Required [FK Not Allow Null]	
 						.OnDelete(DeleteBehavior.Restrict);
 
 

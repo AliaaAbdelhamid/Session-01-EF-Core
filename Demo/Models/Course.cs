@@ -13,7 +13,7 @@ namespace Demo.Models
 		public string? CName { get; set; }
 
 		[InverseProperty(nameof(StudentCourse.Course))]
-		public ICollection<StudentCourse> CrStudents { get; set; } = new HashSet<StudentCourse>();
+		public virtual ICollection<StudentCourse> CrStudents { get; set; } = new HashSet<StudentCourse>();
 	}
 
 }
