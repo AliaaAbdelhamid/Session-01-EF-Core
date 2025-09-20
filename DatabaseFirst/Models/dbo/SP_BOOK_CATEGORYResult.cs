@@ -12,7 +12,6 @@ namespace DatabaseFirst.Models
     {
         [StringLength(50)]
         public string Cat_name { get; set; } = default!;
-        [Column("Count Of Books")]
         public int? CountOfBooks { get; set; }
     }
 }

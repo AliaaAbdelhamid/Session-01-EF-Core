@@ -10,7 +10,11 @@ namespace DatabaseFirst.Test;
 
 public partial class LibraryDbContext : DbContext
 {
-    public LibraryDbContext(DbContextOptions<LibraryDbContext> options)
+	public LibraryDbContext()
+	{
+		
+	}
+	public LibraryDbContext(DbContextOptions<LibraryDbContext> options)
         : base(options)
     {
     }
@@ -25,7 +29,7 @@ public partial class LibraryDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=Library;Integrated Security=True");
+        => optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=Library;Integrated Security=True;Encrypt=True;TrustServerCertificate =true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
