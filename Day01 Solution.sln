@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoInheritance", "DemoInhertiance\DemoInheritance.csproj", "{53CA9C53-A55D-42E9-BD37-4AE57462A581}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseFirst", "DatabaseFirst\DatabaseFirst.csproj", "{CAA4C84D-D44F-42ED-A813-D85730E0C3C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{53CA9C53-A55D-42E9-BD37-4AE57462A581}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53CA9C53-A55D-42E9-BD37-4AE57462A581}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53CA9C53-A55D-42E9-BD37-4AE57462A581}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAA4C84D-D44F-42ED-A813-D85730E0C3C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAA4C84D-D44F-42ED-A813-D85730E0C3C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAA4C84D-D44F-42ED-A813-D85730E0C3C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAA4C84D-D44F-42ED-A813-D85730E0C3C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
